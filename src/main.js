@@ -1,3 +1,5 @@
+// eslint-disable-next-line no-undef
+// eslint-disable-next-line no-unused-vars
 var _ = require('../node_modules/lodash');
 import {createNavigationTemplate} from './view/navigation.js';
 import { createFilterTemplate } from './view/filters.js';
@@ -7,7 +9,7 @@ import { createTripCostTemplate } from './view/cost.js';
 import { createNewPointTemplate } from './view/new-point.js';
 import { createEditPointTemplate } from './view/edit-point.js';
 import { pointTemplate } from './view/point.js';
-import { generatePoint } from './mock/point.js';
+import { generatePoint } from './mock/point-data.js';
 
 //////////
 // let arr = [];
@@ -22,7 +24,7 @@ import { generatePoint } from './mock/point.js';
 // console.log(countby)
 //////////
 
-const COUNT = 3;
+const COUNT = 23; //Number of generated mockpoints
 const DEFAULT_INSERT_POSITION = 'beforeend';
 //alert('hi!');
 const render = (container,template,place=DEFAULT_INSERT_POSITION) => {

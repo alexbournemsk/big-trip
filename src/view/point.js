@@ -1,16 +1,32 @@
-import { generatePoint } from "../mock/point";
+import { generatePoint } from '../mock/point-data.js';
 
-const newPoint = generatePoint();
-
-
-export const pointTemplate = () => (`
+export const pointTemplate = () => {
+  const newPoint = generatePoint();
+  const offers = newPoint.offers;
+  const generateOffersList = (arr) => {
+    let offersList = '';
+    for (let i = 0; i < arr.length; i++) {
+      const element = `
+      <li class="event__offer">
+        <span class="event__offer-title">${arr[i].title}</span>
+        +€&nbsp;
+        <span class="event__offer-price">${arr[i].price}</span>
+      </li>`;
+      if (arr[i].isSelected === 1) {
+        offersList += element;
+      }
+    }
+    return offersList;
+  };
+  const allOffers = generateOffersList(offers);
+  return (`
   <li class="trip-events__item">
   <div class="event">
     <time class="event__date" datetime="2019-03-18">MAR 18</time>
     <div class="event__type">
-      <img class="event__type-icon" width="42" height="42" src="img/icons/taxi.png" alt="Event type icon">
+      <img class="event__type-icon" width="42" height="42" src="img/icons/${newPoint.type}.png" alt="Event type icon">
     </div>
-    <h3 class="event__title">Taxi ${newPoint.destination.name}</h3>
+    <h3 class="event__title">${newPoint.type} ${newPoint.destination.name}</h3>
     <div class="event__schedule">
       <p class="event__time">
         <time class="event__start-time" datetime="2019-03-18T10:30">10:30</time>
@@ -24,11 +40,8 @@ export const pointTemplate = () => (`
     </p>
     <h4 class="visually-hidden">Offers:</h4>
     <ul class="event__selected-offers">
-      <li class="event__offer">
-        <span class="event__offer-title">Order Uber</span>
-        +€&nbsp;
-        <span class="event__offer-price">20</span>
-      </li>
+      ${allOffers}
+
     </ul>
     <button class="event__favorite-btn event__favorite-btn--active" type="button">
       <span class="visually-hidden">Add to favorite</span>
@@ -42,3 +55,4 @@ export const pointTemplate = () => (`
   </div>
   </li>
 `);
+};
