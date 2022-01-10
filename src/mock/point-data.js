@@ -1,5 +1,6 @@
 import {CITIES, POINT_TYPES, OFFERS__BY_TYPES, DESCRIPTION_PARTS} from '../const.js';
-import { getRandomArrayElement } from '../utils.js';
+import {getRandomArrayElement, randomInteger} from '../utils.js';
+var dayjs = require('dayjs')
 
 const filterOffersByType = (type) => {
   const searchTerm = type;
@@ -16,10 +17,13 @@ const generateDestination = () => ({
   pictures: [
     {
       src: generatePicture().src,
-      description: 'parliament building'
+      description: 'beautiful view'
     }
   ]
 });
+
+const daysGap = randomInteger(-7,7);
+const dueDate = () => dayjs().add(daysGap,'day').format('D MMM');
 
 export const generatePoint = () => {
   const type = getRandomArrayElement(POINT_TYPES);
@@ -27,7 +31,7 @@ export const generatePoint = () => {
     {
       type: type,
       basePrice: 1100,
-      dateFrom: '14-12-2021',
+      dateFrom: dueDate(),
       dateTo: '14-12-2021',
       destination: generateDestination(),
       id: 0,

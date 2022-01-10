@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-undef
 // eslint-disable-next-line no-unused-vars
 var _ = require('../node_modules/lodash');
+
 import {createNavigationTemplate} from './view/navigation.js';
 import { createFilterTemplate } from './view/filters.js';
 import { createSortTemplate } from './view/sort.js';
@@ -9,24 +10,9 @@ import { createTripCostTemplate } from './view/cost.js';
 import { createNewPointTemplate } from './view/new-point.js';
 import { createEditPointTemplate } from './view/edit-point.js';
 import { pointTemplate } from './view/point.js';
-import { generatePoint } from './mock/point-data.js';
 
-//////////
-// let arr = [];
-// for (let i = 0; i < 100; i++) {
-//   arr.push(randomInteger(1,10));
-// }
-// arr.sort();
-// console.log(arr);
-
-
-// let countby = _.countBy(arr);
-// console.log(countby)
-//////////
-
-const COUNT = 23; //Number of generated mockpoints
+const COUNT = 3; //Number of generated mockpoints
 const DEFAULT_INSERT_POSITION = 'beforeend';
-//alert('hi!');
 const render = (container,template,place=DEFAULT_INSERT_POSITION) => {
   container.insertAdjacentHTML(place,template);
 };
