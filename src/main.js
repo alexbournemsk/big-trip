@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-undef
 // eslint-disable-next-line no-unused-vars
-var _ = require('../node_modules/lodash');
+//const _ = require('../node_modules/lodash');
 
 import {createNavigationTemplate} from './view/navigation.js';
 import { createFilterTemplate } from './view/filters.js';

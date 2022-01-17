@@ -1,6 +1,7 @@
 import {CITIES, POINT_TYPES, OFFERS__BY_TYPES, DESCRIPTION_PARTS} from '../const.js';
 import {getRandomArrayElement, randomInteger} from '../utils.js';
-var dayjs = require('dayjs')
+import dayjs from 'dayjs';
+
 
 const filterOffersByType = (type) => {
   const searchTerm = type;
