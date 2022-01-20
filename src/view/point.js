@@ -1,8 +1,9 @@
 import { generatePoint } from '../mock/point-data.js';
+import { createElement } from '../utils.js';
 
-export const pointTemplate = () => {
+
+const pointTemplate = () => {
   const newPoint = generatePoint();
-  const offers = newPoint.offers;
   const generateOffersList = (arr) => {
     let offersList = '';
     for (let i = 0; i < arr.length; i++) {
@@ -18,9 +19,9 @@ export const pointTemplate = () => {
     }
     return offersList;
   };
-  const allOffers = generateOffersList(offers);
-  return (`
-  <li class="trip-events__item">
+
+  const allOffers = generateOffersList(newPoint.offers);
+  return (`<li class="trip-events__item">
   <div class="event">
     <time class="event__date" datetime="2019-03-18">${newPoint.dateFrom}</time>
     <div class="event__type">
@@ -56,3 +57,27 @@ export const pointTemplate = () => {
   </li>
 `);
 };
+
+export class Point {
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate() {
+    return pointTemplate();
+  }
+
+  getElement() {
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+      this._element.addEventListener('click', this.removeElement);
+    }
+    return this._element;
+  }
+
+  removeElement() {
+    this._element.remove();
+    this._element = null;
+  }
+
+}

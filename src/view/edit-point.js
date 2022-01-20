@@ -1,18 +1,13 @@
-import { generatePoint } from '../mock/point-data.js';
-const newEditPoint = generatePoint();
+import { createElement } from '../utils.js';
 
-const EVENT_TYPES =
-  ['taxi', 'bus', 'train', 'ship', 'transport', 'drive', 'flight', 'check-in', 'sightseeing', 'restaurant']
+// const eventTypeElementTemplate = () => (`
+//   <div class="event__type-item">
+//   <input id="event-type-drive-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="drive">
+//   <label class="event__type-label  event__type-label--drive" for="event-type-drive-1">Drive</label>
+//   </div>
+// `);
 
-
-const eventTypeElementTemplate = () => (`
-  <div class="event__type-item">
-  <input id="event-type-drive-1" class="event__type-input  visually-hidden" type="radio" name="event-type" value="drive">
-  <label class="event__type-label  event__type-label--drive" for="event-type-drive-1">Drive</label>
-  </div>
-`)
-
-export const createEditPointTemplate = () => (`
+const createEditPointTemplate = () => (`<div>
   <li class="trip-events__item">
   <form class="event event--edit" action="#" method="post">
     <header class="event__header">
@@ -168,5 +163,28 @@ export const createEditPointTemplate = () => (`
     </section>
   </form>
   </li>
+</div>
 `);
 
+export class EditPoint {
+  constructor() {
+    this._element = null;
+  }
+
+  getTemplate() {
+    return createEditPointTemplate();
+  }
+
+  getElement() {
+
+    if (!this._element) {
+      this._element = createElement(this.getTemplate());
+    }
+    return this._element;
+
+  }
+
+  removeElement() {
+    this._element = null;
+  }
+}

@@ -14,14 +14,14 @@ const OFFERS__BY_TYPES = [
     type: 'taxi',
     title: 'Upgrade to a business class',
     price: 120,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
   },
 
   {
     type: 'taxi',
     title: 'Choose the radio station',
     price: 60,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
 
   },
 
@@ -29,7 +29,7 @@ const OFFERS__BY_TYPES = [
     type: 'bus',
     title: 'Choose meal',
     price: 50,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
 
   },
 
@@ -37,37 +37,37 @@ const OFFERS__BY_TYPES = [
     type: 'bus',
     title: 'Upgrade to comfort class',
     price: 180,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
   },
 
   {
     type: 'flight',
     title: 'Upgrade to business class',
     price: 180,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
   },
 
   {
     type: 'flight',
     title: 'Choose meal',
     price: 15,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
   },
 
   {
     type: 'flight',
     title: 'Add luggage',
     price: 45,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
   },
 
   {
     type: 'flight',
     title: 'Choose seats',
     price: 15,
-    isSelected: randomInteger(0,1)
+    isSelected: randomInteger(0, 1)
   }
 
 ];
 
-export {CITIES, POINT_TYPES, OFFERS__BY_TYPES, DESCRIPTION_PARTS};
+export { CITIES, POINT_TYPES, OFFERS__BY_TYPES, DESCRIPTION_PARTS };
