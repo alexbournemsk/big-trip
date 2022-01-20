@@ -1,4 +1,4 @@
-export const createNewPointTemplate = () => (`
+const createNewPointTemplate = () => (`
 <li class="trip-events__item">
 <form class="event event--edit" action="#" method="post">
   <header class="event__header">
@@ -164,3 +164,4 @@ export const createNewPointTemplate = () => (`
 
 `);
 
+//export class NewPoint
