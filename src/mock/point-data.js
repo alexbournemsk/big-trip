@@ -2,6 +2,8 @@ import {CITIES, POINT_TYPES, OFFERS__BY_TYPES, PRICES_BY_TYPES, DESCRIPTION_PART
 import {getRandomArrayElement, randomInteger} from '../utils.js';
 import dayjs from 'dayjs';
 
+const MOCK_POINTS_COUNT = 5; //Number of generated mock points
+
 
 const filterOffersByType = (type) => {
   const searchTerm = type;
@@ -27,7 +29,7 @@ const generateDestination = () => ({
 const daysGap = randomInteger(-7,7);
 const dueDate = () => dayjs().add(daysGap,'day').format('D MMM');
 
-export const generatePoint = () => {
+const generatePoint = () => {
   const type = getRandomArrayElement(POINT_TYPES);
   return (
     {
@@ -41,3 +43,10 @@ export const generatePoint = () => {
       offers: filterOffersByType(type),
     });
 };
+
+const pointsArray = [];
+for (let i = 0; i < MOCK_POINTS_COUNT; i++) {
+  pointsArray.push(generatePoint());
+}
+
+export default pointsArray;
