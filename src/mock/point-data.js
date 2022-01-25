@@ -1,4 +1,4 @@
-import {CITIES, POINT_TYPES, OFFERS__BY_TYPES, DESCRIPTION_PARTS} from '../const.js';
+import {CITIES, POINT_TYPES, OFFERS__BY_TYPES, PRICES_BY_TYPES, DESCRIPTION_PARTS} from '../const.js';
 import {getRandomArrayElement, randomInteger} from '../utils.js';
 import dayjs from 'dayjs';
 
@@ -7,6 +7,7 @@ const filterOffersByType = (type) => {
   const searchTerm = type;
   return OFFERS__BY_TYPES.filter((offer) => offer.type === searchTerm);
 };
+
 
 const generatePicture = () => ({
   src: `http://picsum.photos/248/153?r=${Math.random()}`,
@@ -31,9 +32,9 @@ export const generatePoint = () => {
   return (
     {
       type: type,
-      basePrice: 1100,
+      basePrice: PRICES_BY_TYPES[type],
       dateFrom: dueDate(),
-      dateTo: '14-12-2021',
+      dateTo: dueDate(),
       destination: generateDestination(),
       id: 0,
       isFavorite: false,

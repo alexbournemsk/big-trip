@@ -1,9 +1,7 @@
-import { generatePoint } from '../mock/point-data.js';
 import { createElement } from '../utils.js';
 
 
-const pointTemplate = () => {
-  const newPoint = generatePoint();
+const pointTemplate = (pointData) => {
   const generateOffersList = (arr) => {
     let offersList = '';
     for (let i = 0; i < arr.length; i++) {
@@ -20,14 +18,15 @@ const pointTemplate = () => {
     return offersList;
   };
 
-  const allOffers = generateOffersList(newPoint.offers);
+  const allOffers = generateOffersList(pointData.offers);
+
   return (`<li class="trip-events__item">
   <div class="event">
-    <time class="event__date" datetime="2019-03-18">${newPoint.dateFrom}</time>
+    <time class="event__date" datetime="2019-03-18">${pointData.dateFrom}</time>
     <div class="event__type">
-      <img class="event__type-icon" width="42" height="42" src="img/icons/${newPoint.type}.png" alt="Event type icon">
+      <img class="event__type-icon" width="42" height="42" src="img/icons/${pointData.type}.png" alt="Event type icon">
     </div>
-    <h3 class="event__title">${newPoint.type} ${newPoint.destination.name}</h3>
+    <h3 class="event__title">${pointData.type} ${pointData.destination.name}</h3>
     <div class="event__schedule">
       <p class="event__time">
         <time class="event__start-time" datetime="2019-03-18T10:30">10:30</time>
@@ -37,7 +36,7 @@ const pointTemplate = () => {
       <p class="event__duration">30M</p>
     </div>
     <p class="event__price">
-      €&nbsp;<span class="event__price-value">20</span>
+      €&nbsp;<span class="event__price-value">${pointData.basePrice}</span>
     </p>
     <h4 class="visually-hidden">Offers:</h4>
     <ul class="event__selected-offers">
@@ -58,25 +57,24 @@ const pointTemplate = () => {
 `);
 };
 
-export class Point {
-  constructor() {
+export default class Point {
+  constructor(pointData) {
+    this._pointData = pointData;
     this._element = null;
   }
 
   getTemplate() {
-    return pointTemplate();
+    return pointTemplate(this._pointData);
   }
 
   getElement() {
     if (!this._element) {
       this._element = createElement(this.getTemplate());
-      this._element.addEventListener('click', this.removeElement);
     }
     return this._element;
   }
 
   removeElement() {
-    this._element.remove();
     this._element = null;
   }
 

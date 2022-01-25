@@ -16,7 +16,7 @@ const renderTemplate = (container,template,place=DEFAULT_INSERT_POSITION) => {
   container.insertAdjacentHTML(place,template);
 };
 
-const renderElement = (container, element, place) => {
+const render = (container, element, place) => {
   switch (place) {
     case RenderPosition.AFTERBEGIN:
       container.prepend(element);
@@ -33,4 +33,4 @@ const createElement = (template) => {
   return newElement.firstChild;
 };
 
-export {randomInteger, getRandomArrayElement, renderTemplate, renderElement, createElement, RenderPosition};
+export {randomInteger, getRandomArrayElement, renderTemplate, render, createElement, RenderPosition};

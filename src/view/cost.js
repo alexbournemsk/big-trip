@@ -5,7 +5,7 @@ const createTripCostTemplate = () => `<p class="trip-info__cost">
   </p>
 `;
 
-export class TripCost {
+export default class TripCost {
   constructor() {
     this._element = null;}
 
@@ -23,23 +23,3 @@ export class TripCost {
 }
 
 
-// export class TripCost {
-//   constructor() {
-//     this._element = null;
-//   }
-
-//   getTemplate() {
-//     const element = document.createElement('p');
-//     element.classList.add('trip-info__cost');
-//     element.innerHTML = 'Total: €&nbsp;<span class="trip-info__cost-value">1230</span>';
-//     return element;
-//   }
-
-//   getElement() {
-//     if (!this._element) {
-//       this._element = this.getTemplate();
-//     }
-//     return this._element;
-//   }
-
-// }

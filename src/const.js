@@ -1,4 +1,4 @@
-import { getRandomArrayElement, randomInteger } from './utils';
+import {randomInteger } from './utils';
 
 const CITIES =
   ['San Francisco', 'Budva', 'Dubrovnik', 'St. Petersburg', 'St. Tropez'];
@@ -8,6 +8,19 @@ const POINT_TYPES =
 
 const DESCRIPTION_PARTS = ['Designed above a canal, the town is home to kind country people', 'It is a beautiful place, a true asian pearl with crowded streets', 'With its cobblestone streets and peaceful, tree-lined canals, its not hard to see this place as one big fairytale setting come to life.'];
 
+const PRICES_BY_TYPES =
+  {
+    taxi:30,
+    bus: 15,
+    train: 500,
+    ship: 2000,
+    transport: 20,
+    drive: 50,
+    flight: 200,
+    'check-in': 0,
+    sightseeing: 0,
+    restaurant: 200
+  };
 
 const OFFERS__BY_TYPES = [
   {
@@ -70,4 +83,4 @@ const OFFERS__BY_TYPES = [
 
 ];
 
-export { CITIES, POINT_TYPES, OFFERS__BY_TYPES, DESCRIPTION_PARTS };
+export { CITIES, POINT_TYPES, OFFERS__BY_TYPES, PRICES_BY_TYPES, DESCRIPTION_PARTS };
