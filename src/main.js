@@ -56,7 +56,13 @@ const renderNewPoint = (pointData) => {
     document.addEventListener('keydown', onEscKeyDown);
   };
 
-  pointViewComponent.getElement().querySelector('.event__rollup-btn').addEventListener('click', changeViewToEdit);
+  // pointViewComponent.getElement().querySelector('.event__rollup-btn').addEventListener('click', changeViewToEdit);
+  pointViewComponent.setEditClickHandler(() => {
+    console.log('changeView');
+    changeViewToEdit();
+  });
+
+
   pointEditorComponent.getElement().querySelector('.event__rollup-btn').addEventListener('click', changeEditToView);
   pointEditorComponent.getElement().querySelector('.event--edit').addEventListener('submit', changeEditToView);
   pointEditorComponent.getElement().querySelector('.event__reset-btn').addEventListener('click', changeEditToView);

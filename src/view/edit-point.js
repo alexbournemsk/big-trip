@@ -1,4 +1,4 @@
-import { createElement } from '../utils.js';
+import AbstractView from './abstract.js';
 
 // const eventTypeElementTemplate = () => (`
 //   <div class="event__type-item">
@@ -166,26 +166,13 @@ const createEditPointTemplate = (pointData) => (`<div>
 </div>
 `);
 
-export default class EditPoint {
-  constructor(pointData) {
-    this._element = null;
+export default class EditPoint extends AbstractView {
+  constructor (pointData) {
+    super();
     this._pointData = pointData;
   }
 
   getTemplate() {
     return createEditPointTemplate(this._pointData);
-  }
-
-  getElement() {
-
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-
-  }
-
-  removeElement() {
-    this._element = null;
   }
 }

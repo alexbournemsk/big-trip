@@ -1,4 +1,4 @@
-import { createElement } from '../utils.js';
+import AbstractView from './abstract.js';
 import pointsArray from '../mock/point-data.js';
 
 const totalSum = (arr) => {
@@ -15,21 +15,10 @@ const createTripCostTemplate = () => `<p class="trip-info__cost">
   </p>
 `;
 
-export default class TripCost {
-  constructor() {
-    this._element = null;}
-
+export default class Cost extends AbstractView {
   getTemplate() {
     return createTripCostTemplate();
   }
-
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
-  }
-
 }
 
 

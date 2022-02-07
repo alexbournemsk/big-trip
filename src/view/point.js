@@ -1,4 +1,4 @@
-import { createElement } from '../utils.js';
+import AbstractView from './abstract.js';
 
 
 const pointTemplate = (pointData) => {
@@ -57,25 +57,27 @@ const pointTemplate = (pointData) => {
 `);
 };
 
-export default class Point {
+export default class Point extends AbstractView {
   constructor(pointData) {
+    super();
     this._pointData = pointData;
-    this._element = null;
+    this._editClickHandler = this._editClickHandler.bind(this);
   }
 
   getTemplate() {
     return pointTemplate(this._pointData);
   }
 
-  getElement() {
-    if (!this._element) {
-      this._element = createElement(this.getTemplate());
-    }
-    return this._element;
+
+  _editClickHandler(evt) {
+    evt.preventDefault();
+    console.log('_editClickHandler');
+    this._callback.editClick();
   }
 
-  removeElement() {
-    this._element = null;
+  setEditClickHandler(callback) {
+    console.log('Run setEditClickHandler');
+    this._callback.editClick = callback;
+    this.getElement().querySelector('.event__rollup-btn').addEventListener('click', this._editClickHandler);
   }
-
 }
